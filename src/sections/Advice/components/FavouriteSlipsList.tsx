@@ -1,4 +1,3 @@
-import React from "react";
 import { Advice } from "../../../types";
 
 export default function FavouriteSlipsList({ slips }: { slips: Advice[] }) {

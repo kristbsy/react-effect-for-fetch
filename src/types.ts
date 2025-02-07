@@ -1,5 +1,5 @@
 
-export type ArtItem = {
+export interface ArtItem {
   id: number;
   title: string;
   artist: string;
@@ -7,7 +7,7 @@ export type ArtItem = {
   publicationHistory: string[];
 };
 
-export type User = {
+export interface User {
     firstName: string;
     lastName: string;
     gender: string;
@@ -22,14 +22,14 @@ export type User = {
     id: number;
 }
 
-export type AdviceJson = {
+export interface AdviceJson {
   slip: {
     id: number;
     advice: string;
   };
 }
 
-export type Advice = {
+export interface Advice {
     slip_id: number;
     advice: string;
 }

@@ -1,6 +1,5 @@
-import React from "react";
 import { ArtItem } from "../../../types";
-import { artApiUrl, baseApiUrl } from "..";
+import { baseApiUrl } from "..";
 
 export default function ArtListItem({ art }: { art: ArtItem }) {
   return (

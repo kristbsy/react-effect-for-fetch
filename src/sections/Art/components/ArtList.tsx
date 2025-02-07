@@ -1,4 +1,3 @@
-import React from "react";
 import { ArtItem } from "../../../types";
 import ArtListItem from "./ArtListItem";
 

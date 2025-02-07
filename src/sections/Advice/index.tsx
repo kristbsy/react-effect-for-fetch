@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import AdviceSlip from "./components/AdviceSlip";
 import FavouriteSlipsList from "./components/FavouriteSlipsList";
 import { Advice } from "../../types";

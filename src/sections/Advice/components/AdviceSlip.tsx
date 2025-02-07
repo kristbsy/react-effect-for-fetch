@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Advice, AdviceJson } from "../../../types";
 
-type AdviceSlipProps = {
+interface AdviceSlipProps {
   onAdviceAddToFavourite: (advice: Advice) => void;
-};
+}
 
 async function getRandomAdviceSlip(): Promise<Advice> {
-  const result: AdviceJson = await (
+  const result = (await (
     await fetch("https://api.adviceslip.com/advice", { cache: "no-store" })
-  ).json();
+  ).json()) as AdviceJson;
   return {
     advice: result.slip.advice,
     slip_id: result.slip.id,
@@ -24,7 +24,9 @@ export default function AdviceSlip({
     setAdvice(advice);
   };
   useEffect(() => {
-    getRandomAdviceSlip().then((a) => setAdvice((b) => a));
+    void getRandomAdviceSlip().then((a) => {
+      setAdvice(() => a);
+    });
   }, []);
 
   return (
@@ -32,9 +34,13 @@ export default function AdviceSlip({
       {advice != null ? (
         <>
           <h3>Some Advice</h3>
-          <p>{advice?.advice}</p>
-          <button onClick={() => refreshAdvice()}>Get More Advice</button>
-          <button onClick={() => onAdviceAddToFavourite(advice)}>
+          <p>{advice.advice}</p>
+          <button onClick={() => void refreshAdvice()}>Get More Advice</button>
+          <button
+            onClick={() => {
+              onAdviceAddToFavourite(advice);
+            }}
+          >
             Save to Favourties
           </button>
         </>

@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import UsersList from "./components/UsersList";
 import { User } from "../../types";
 import { baseApiUrl } from "../Art";
 
 async function getUsers(): Promise<User[]> {
-  return await (await fetch(`${baseApiUrl}/kristbsy/contact`)).json();
+  return (await (
+    await fetch(`${baseApiUrl}/kristbsy/contact`)
+  ).json()) as User[];
 }
 
 function UsersSection() {
   const [users, setUsers] = useState<User[]>([]);
   useEffect(() => {
-    getUsers().then((users) => setUsers(users));
+    void getUsers().then((users) => {
+      setUsers(users);
+    });
   }, []);
 
   return (
