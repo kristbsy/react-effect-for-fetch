@@ -11,7 +11,7 @@ export default function AdviceSection() {
       <h2>Advice Section</h2>
       <AdviceSlip
         onAdviceAddToFavourite={(fav) => {
-          if (!favs.includes(fav)) {
+          if (!favs.map((a) => a.slip_id).includes(fav.slip_id)) {
             setFavs([...favs, fav]);
           }
         }}

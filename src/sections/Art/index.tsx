@@ -13,7 +13,7 @@ function ArtsSection() {
   const [artList, setArtList] = useState<ArtItem[]>([]);
   useEffect(() => {
     getArtList().then((artlist) => setArtList(artlist));
-  });
+  }, []);
   return (
     <section>
       <h2>Arts Section</h2>

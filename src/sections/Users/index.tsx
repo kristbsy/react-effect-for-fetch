@@ -11,7 +11,7 @@ function UsersSection() {
   const [users, setUsers] = useState<User[]>([]);
   useEffect(() => {
     getUsers().then((users) => setUsers(users));
-  });
+  }, []);
 
   return (
     <section>
